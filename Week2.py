@@ -23,33 +23,46 @@ def squares(a,b):
 #Question-2 Encryption
 
 def encryption(s):
-    sentence=s.replace(' ', '')
-    sentence_size=len(sentence)
-    lowerbound = math.floor(math.sqrt(sentence_size))
-    upperbound = math.ceil(math.sqrt(sentence_size))
-    total = upperbound * lowerbound
+    sentence=s.replace(" ","")
     sen_list=[]
-    encrypt=""
-    while (total < sentence_size):
-        if (lowerbound < upperbound):
-            lowerbound+=1
-        else: 
-            upperbound+=1
-    
-        total = upperbound * lowerbound
-    for i in range(0,lowerbound):
-        for j in range(0,upperbound):
-            #if (index <= len(s) - 1):
-            sen_list.append([i,j])
-            
-    for i in range(0, upperbound):
-        for j in range(0, lowerbound):
-            if (sen_list[i][j] != 0):
-                encrypt+= sen_list[i][j]
-        
-##    if (col != upperbound - 1):
-##        encrypt+= " "
-    return encrypt
+    limit=math.sqrt(len(sentence))
+    row=math.floor(limit) 
+    col=math.ceil(limit)
+    for i in range(col):
+        string=""
+        for j in range(i,len(sentence),col):
+            string+=sentence[j]
+        sen_list.append(string)
+    return(' '.join(sen_list))
+
+##def encryption(s):
+##    sentence=s.replace(' ', '')
+##    sentence_size=len(sentence)
+##    lowerbound = math.floor(math.sqrt(sentence_size))
+##    upperbound = math.ceil(math.sqrt(sentence_size))
+##    total = upperbound * lowerbound
+##    sen_list=[]
+##    encrypt=""
+##    while (total < sentence_size):
+##        if (lowerbound < upperbound):
+##            lowerbound+=1
+##        else: 
+##            upperbound+=1
+##    
+##        total = upperbound * lowerbound
+##    for i in range(0,lowerbound):
+##        for j in range(0,upperbound):
+##            #if (index <= len(s) - 1):
+##            sen_list.append([i,j])
+##            
+##    for i in range(0, upperbound):
+##        for j in range(0, lowerbound):
+##            if (sen_list[i][j] != 0):
+##                encrypt+= sen_list[i][j]
+##        
+####    if (col != upperbound - 1):
+####        encrypt+= " "
+##    return encrypt
 
 
   
