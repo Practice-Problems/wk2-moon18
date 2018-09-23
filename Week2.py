@@ -51,17 +51,6 @@ def encryption(s):
 ##        encrypt+= " "
     return encrypt
 
-import math
-import os
-import random
-import re
-import sys
-
-# Complete the encryption function below.
-def e(s):
-    s = input().strip()
-    c = ceil(sqrt(len(s)))
-    return (' '.join(map(lambda x: s[x::c], range(c))))
 
   
             
